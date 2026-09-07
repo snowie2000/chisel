@@ -3,6 +3,7 @@ package chserver
 import (
 	"fmt"
 	"net/http"
+	"regexp"
 	"strings"
 	"sync/atomic"
 	"time"
@@ -14,6 +15,14 @@ import (
 	"golang.org/x/crypto/ssh"
 	"golang.org/x/sync/errgroup"
 )
+
+// export chisel handler publicly
+func (s *Server) ServeHTTP(
+	w http.ResponseWriter,
+	r *http.Request,
+) {
+	s.handleClientHandler(w, r)
+}
 
 // handleClientHandler is the main http websocket handler for the chisel server
 func (s *Server) handleClientHandler(w http.ResponseWriter, r *http.Request) {
@@ -70,14 +79,24 @@ func (s *Server) handleWebsocket(w http.ResponseWriter, req *http.Request) {
 	var user *settings.User
 	if sshConn.Permissions != nil {
 		n := sshConn.Permissions.Extensions["user"]
-		u, found := s.users.Get(n)
-		if !found {
-			//user was removed by an authfile reload mid-handshake
-			l.Infof("User %s no longer exists", n)
-			sshConn.Close()
-			return
+		if sshConn.Permissions.Extensions["external-auth"] == "1" { // allow externally authenticated users for socks5 only
+			// Only permit SOCKS for application-authenticated users.
+			user = &settings.User{
+				Name: n,
+				Addrs: []*regexp.Regexp{
+					regexp.MustCompile(`^socks$`),
+				},
+			}
+		} else {
+			u, found := s.users.Get(n)
+			if !found {
+				//user was removed by an authfile reload mid-handshake
+				l.Infof("User %s no longer exists", n)
+				sshConn.Close()
+				return
+			}
+			user = u
 		}
-		user = u
 	}
 	// chisel server handshake (reverse of client handshake)
 	// verify configuration
