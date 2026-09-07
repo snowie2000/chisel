@@ -21,8 +21,6 @@ import (
 	"golang.org/x/crypto/ssh"
 )
 
-type AuthFunc func(username, password string) bool
-
 // Config is the configuration for the chisel service
 type Config struct {
 	KeySeed   string        `opts:"name=key,short=-" help:"(deprecated use --keygen and --keyfile instead) An optional string to seed the generation of a ECDSA public and private key pair. All communications will be secured using this key pair. Share the subsequent fingerprint with clients to enable detection of man-in-the-middle attacks (defaults to the CHISEL_KEY environment variable, otherwise a new key is generate each run)."`
@@ -34,8 +32,6 @@ type Config struct {
 	Reverse   bool          `opts:"name=reverse,short=-" help:"Allow clients to specify reverse port forwarding remotes in addition to normal remotes."`
 	KeepAlive time.Duration `opts:"name=keepalive,short=-" help:"An optional keepalive interval. Since the underlying transport is HTTP, in many instances we'll be traversing through proxies, often these proxies will close idle connections. You must specify a time with a unit, for example '5s' or '2m'. Defaults to '25s' (set to 0s to disable)."`
 	TLS       TLSConfig     `opts:"mode=embedded"`
-
-	AuthFunc AuthFunc `opts:"-"`
 }
 
 // Server represent a chisel service
@@ -204,30 +200,6 @@ func (s *Server) authUser(c ssh.ConnMetadata, password []byte) (*ssh.Permissions
 	// check the user exists and has matching password
 	n := c.User()
 
-	// Application-provided authentication.
-	if s.config.AuthFunc != nil {
-		if !s.config.AuthFunc(n, string(password)) {
-			s.Infof(
-				"Login failed for user %q (%s)",
-				n,
-				c.RemoteAddr(),
-			)
-
-			return nil, fmt.Errorf(
-				"invalid authentication for username: %s",
-				n,
-			)
-		}
-
-		return &ssh.Permissions{
-			Extensions: map[string]string{
-				"user":          n,
-				"external-auth": "1",
-			},
-		}, nil
-	}
-
-	// Existing Chisel authentication
 	// check if user authentication is enabled and if not, allow all
 	if s.users.Len() == 0 {
 		return nil, nil

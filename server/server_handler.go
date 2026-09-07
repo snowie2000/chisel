@@ -3,7 +3,6 @@ package chserver
 import (
 	"fmt"
 	"net/http"
-	"regexp"
 	"strings"
 	"sync/atomic"
 	"time"
@@ -79,24 +78,14 @@ func (s *Server) handleWebsocket(w http.ResponseWriter, req *http.Request) {
 	var user *settings.User
 	if sshConn.Permissions != nil {
 		n := sshConn.Permissions.Extensions["user"]
-		if sshConn.Permissions.Extensions["external-auth"] == "1" { // allow externally authenticated users for socks5 only
-			// Only permit SOCKS for application-authenticated users.
-			user = &settings.User{
-				Name: n,
-				Addrs: []*regexp.Regexp{
-					regexp.MustCompile(`^socks$`),
-				},
-			}
-		} else {
-			u, found := s.users.Get(n)
-			if !found {
-				//user was removed by an authfile reload mid-handshake
-				l.Infof("User %s no longer exists", n)
-				sshConn.Close()
-				return
-			}
-			user = u
+		u, found := s.users.Get(n)
+		if !found {
+			//user was removed by an authfile reload mid-handshake
+			l.Infof("User %s no longer exists", n)
+			sshConn.Close()
+			return
 		}
+		user = u
 	}
 	// chisel server handshake (reverse of client handshake)
 	// verify configuration
