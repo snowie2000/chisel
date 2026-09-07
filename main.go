@@ -1,4 +1,4 @@
-package main
+package chisel
 
 import (
 	"fmt"
@@ -10,17 +10,17 @@ import (
 	"strings"
 	"time"
 
-	chclient "github.com/jpillora/chisel/client"
-	chserver "github.com/jpillora/chisel/server"
-	chshare "github.com/jpillora/chisel/share"
-	"github.com/jpillora/chisel/share/ccrypto"
-	"github.com/jpillora/chisel/share/cos"
-	"github.com/jpillora/chisel/share/settings"
 	"github.com/jpillora/opts"
+	chclient "github.com/snowie2000/chisel/client"
+	chserver "github.com/snowie2000/chisel/server"
+	chshare "github.com/snowie2000/chisel/share"
+	"github.com/snowie2000/chisel/share/ccrypto"
+	"github.com/snowie2000/chisel/share/cos"
+	"github.com/snowie2000/chisel/share/settings"
 )
 
 // chiselRepo is rendered in the "Read more:" section of every help screen.
-const chiselRepo = "https://github.com/jpillora/chisel"
+const chiselRepo = "https://github.com/snowie2000/chisel"
 
 // versionTemplate keeps the Go runtime version alongside the build version in
 // the help text. The --version flag still prints the build version alone.
