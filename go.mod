@@ -1,4 +1,4 @@
-module github.com/jpillora/chisel
+module github.com/snowie2000/chisel
 
 go 1.25.0
 
