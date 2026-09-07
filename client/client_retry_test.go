@@ -10,7 +10,7 @@ import (
 	"testing"
 	"time"
 
-	chserver "github.com/jpillora/chisel/server"
+	chserver "github.com/snowie2000/chisel/server"
 )
 
 func TestRetryIntervalDefaults(t *testing.T) {

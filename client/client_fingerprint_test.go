@@ -6,7 +6,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/jpillora/chisel/share/ccrypto"
+	"github.com/snowie2000/chisel/share/ccrypto"
 	"golang.org/x/crypto/ssh"
 )
 

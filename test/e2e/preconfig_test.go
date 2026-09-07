@@ -9,8 +9,8 @@ import (
 	"testing"
 	"time"
 
-	chserver "github.com/jpillora/chisel/server"
-	"github.com/jpillora/chisel/share/settings"
+	chserver "github.com/snowie2000/chisel/server"
+	"github.com/snowie2000/chisel/share/settings"
 )
 
 // syncBuffer is a goroutine-safe writer for capturing log output.

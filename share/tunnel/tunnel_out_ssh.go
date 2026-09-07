@@ -8,9 +8,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/jpillora/chisel/share/cio"
-	"github.com/jpillora/chisel/share/cnet"
-	"github.com/jpillora/chisel/share/settings"
+	"github.com/snowie2000/chisel/share/cio"
+	"github.com/snowie2000/chisel/share/cnet"
+	"github.com/snowie2000/chisel/share/settings"
 	"github.com/jpillora/sizestr"
 	"golang.org/x/crypto/ssh"
 )

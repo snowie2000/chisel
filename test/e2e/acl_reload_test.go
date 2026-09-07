@@ -6,8 +6,8 @@ import (
 	"net"
 	"testing"
 
-	chserver "github.com/jpillora/chisel/server"
-	"github.com/jpillora/chisel/share/settings"
+	chserver "github.com/snowie2000/chisel/server"
+	"github.com/snowie2000/chisel/share/settings"
 	"golang.org/x/crypto/ssh"
 )
 

@@ -8,7 +8,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/jpillora/chisel/share/settings"
+	"github.com/snowie2000/chisel/share/settings"
 	"golang.org/x/sync/errgroup"
 )
 

@@ -5,8 +5,8 @@ import (
 	"net"
 	"testing"
 
-	"github.com/jpillora/chisel/share/cio"
-	"github.com/jpillora/chisel/share/settings"
+	"github.com/snowie2000/chisel/share/cio"
+	"github.com/snowie2000/chisel/share/settings"
 )
 
 // TestBindRemotesUnbindsOnPartialFailure verifies that when one remote

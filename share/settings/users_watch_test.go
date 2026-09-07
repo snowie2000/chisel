@@ -8,7 +8,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/jpillora/chisel/share/cio"
+	"github.com/snowie2000/chisel/share/cio"
 )
 
 func writeUser(t *testing.T, path, name string) {
