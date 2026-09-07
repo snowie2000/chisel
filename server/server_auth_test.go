@@ -6,7 +6,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/jpillora/chisel/share/cio"
+	"github.com/snowie2000/chisel/share/cio"
 )
 
 type testConnMeta struct {

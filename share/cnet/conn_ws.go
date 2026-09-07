@@ -5,7 +5,7 @@ import (
 	"time"
 
 	"github.com/gorilla/websocket"
-	"github.com/jpillora/chisel/share/settings"
+	"github.com/snowie2000/chisel/share/settings"
 )
 
 type wsConn struct {
