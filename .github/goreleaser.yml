@@ -6,7 +6,7 @@ builds:
     env:
       - CGO_ENABLED=0
     ldflags:
-      - -s -w -X github.com/jpillora/chisel/share.BuildVersion={{.Version}}
+      - -s -w -X github.com/snowie2000/chisel/share.BuildVersion={{.Version}}
     flags:
       - -trimpath
     goos:
@@ -83,8 +83,8 @@ kos:
     build: chisel
     main: .
     repositories:
-      - ghcr.io/jpillora/chisel
-      - docker.io/jpillora/chisel
+      - ghcr.io/snowie2000/chisel
+      - docker.io/snowie2000/chisel
     tags:
       - "{{ .Version }}"
     base_image: localhost:5000/chisel-ko-base:local

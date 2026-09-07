@@ -1,6 +1,6 @@
 # Chisel
 
-[![GoDoc](https://godoc.org/github.com/jpillora/chisel?status.svg)](https://godoc.org/github.com/jpillora/chisel) [![CI](https://github.com/jpillora/chisel/workflows/CI/badge.svg)](https://github.com/jpillora/chisel/actions?workflow=CI)
+[![GoDoc](https://godoc.org/github.com/snowie2000/chisel?status.svg)](https://godoc.org/github.com/snowie2000/chisel) [![CI](https://github.com/snowie2000/chisel/workflows/CI/badge.svg)](https://github.com/snowie2000/chisel/actions?workflow=CI)
 
 Chisel is a fast TCP/UDP tunnel, transported over HTTP, secured via SSH. Single executable including both client and server. Written in Go (golang). Chisel is mainly useful for passing through firewalls, though it can also be used to provide a secure endpoint into your network.
 
@@ -35,21 +35,21 @@ Chisel is a fast TCP/UDP tunnel, transported over HTTP, secured via SSH. Single 
 
 ### Binaries
 
-[![Releases](https://img.shields.io/github/release/jpillora/chisel.svg)](https://github.com/jpillora/chisel/releases) [![Releases](https://img.shields.io/github/downloads/jpillora/chisel/total.svg)](https://github.com/jpillora/chisel/releases)
+[![Releases](https://img.shields.io/github/release/snowie2000/chisel.svg)](https://github.com/snowie2000/chisel/releases) [![Releases](https://img.shields.io/github/downloads/snowie2000/chisel/total.svg)](https://github.com/snowie2000/chisel/releases)
 
-See [the latest release](https://github.com/jpillora/chisel/releases/latest) or download and install it now with `curl https://i.jpillora.com/chisel! | bash`
+See [the latest release](https://github.com/snowie2000/chisel/releases/latest) or download and install it now with `curl https://i.jpillora.com/chisel! | bash`
 
-Binaries are built with the latest Go release, which sets the minimum OS versions: Windows 10 / Server 2016, macOS 12, Linux kernel 3.2, FreeBSD 12.2. For older systems (e.g. Windows 7), use [release v1.8.1](https://github.com/jpillora/chisel/releases/tag/v1.8.1) or earlier.
+Binaries are built with the latest Go release, which sets the minimum OS versions: Windows 10 / Server 2016, macOS 12, Linux kernel 3.2, FreeBSD 12.2. For older systems (e.g. Windows 7), use [release v1.8.1](https://github.com/snowie2000/chisel/releases/tag/v1.8.1) or earlier.
 
 ### Docker
 
-[![Docker Pulls](https://img.shields.io/docker/pulls/jpillora/chisel.svg)](https://hub.docker.com/r/jpillora/chisel/) [![Image Size](https://img.shields.io/docker/image-size/jpillora/chisel/latest)](https://hub.docker.com/r/jpillora/chisel/tags)
+[![Docker Pulls](https://img.shields.io/docker/pulls/snowie2000/chisel.svg)](https://hub.docker.com/r/snowie2000/chisel/) [![Image Size](https://img.shields.io/docker/image-size/snowie2000/chisel/latest)](https://hub.docker.com/r/snowie2000/chisel/tags)
 
 ```sh
-docker run --rm -it jpillora/chisel --help
+docker run --rm -it snowie2000/chisel --help
 ```
 
-Images are multi-arch and published to both Docker Hub (`jpillora/chisel`) and GitHub Container Registry (`ghcr.io/jpillora/chisel`).
+Images are multi-arch and published to both Docker Hub (`snowie2000/chisel`) and GitHub Container Registry (`ghcr.io/snowie2000/chisel`).
 
 ### Fedora
 
@@ -62,7 +62,7 @@ sudo dnf -y install chisel
 ### Source
 
 ```sh
-$ go install github.com/jpillora/chisel@latest
+$ go install github.com/snowie2000/chisel@latest
 ```
 
 ## Demo
@@ -103,7 +103,7 @@ $ chisel --help
     client - runs chisel in client mode
 
   Read more:
-    https://github.com/jpillora/chisel
+    https://github.com/snowie2000/chisel
 
 ```
 <!--/tmpl-->
@@ -222,7 +222,7 @@ $ chisel server --help
     X.Y.Z
 
   Read more:
-    https://github.com/jpillora/chisel
+    https://github.com/snowie2000/chisel
 
 ```
 <!--/tmpl-->
@@ -378,7 +378,7 @@ $ chisel client --help
     X.Y.Z
 
   Read more:
-    https://github.com/jpillora/chisel
+    https://github.com/snowie2000/chisel
 
 ```
 <!--/tmpl-->
@@ -433,7 +433,7 @@ For mutual TLS, also pass `--tls-ca` to the server and `--tls-cert`/`--tls-key` 
 1. Start your chisel server
 
     ```sh
-    jpillora/chisel server --keyfile '<ck-base64 string or file path>' -p 9312 --socks5
+    snowie2000/chisel server --keyfile '<ck-base64 string or file path>' -p 9312 --socks5
     ```
 
 1. Connect your chisel client (using server's fingerprint)
@@ -510,9 +510,9 @@ Since WebSockets support is required:
 
 - http://golang.org/doc/code.html
 - http://golang.org/doc/effective_go.html
-- `github.com/jpillora/chisel/share` contains the shared package
-- `github.com/jpillora/chisel/server` contains the server package
-- `github.com/jpillora/chisel/client` contains the client package
+- `github.com/snowie2000/chisel/share` contains the shared package
+- `github.com/snowie2000/chisel/server` contains the server package
+- `github.com/snowie2000/chisel/client` contains the client package
 
 ## Changelog
 
@@ -555,4 +555,4 @@ Four changes may require action when upgrading from 1.11.x or earlier:
 
 ## License
 
-[MIT](https://github.com/jpillora/chisel/blob/master/LICENSE) © Jaime Pillora
+[MIT](https://github.com/snowie2000/chisel/blob/master/LICENSE) © Jaime Pillora

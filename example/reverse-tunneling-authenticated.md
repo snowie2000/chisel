@@ -63,7 +63,7 @@ version: '3'
 
 services:
   chisel:
-    image: jpillora/chisel
+    image: snowie2000/chisel
     restart: unless-stopped
     container_name: chisel
     # ⬇️ Pass CLI arguments one at a time in an array, as required by Docker compose.
@@ -99,7 +99,7 @@ services:
     # ⬇️ Delay starting Chisel server until the web server container is started.
     depends_on:
       - webserver
-    image: jpillora/chisel
+    image: snowie2000/chisel
     restart: unless-stopped
     container_name: 'chisel'
     command:

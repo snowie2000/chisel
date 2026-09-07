@@ -27,11 +27,11 @@ This is the most-reported problem in the tracker.
 
 ### Refs
 
-- [#445](https://github.com/jpillora/chisel/issues/445) — Keepalive timers for disconnected chisel client
-- [#560](https://github.com/jpillora/chisel/issues/560) — Client keeps disconnecting every 3-5 minutes
-- [#579](https://github.com/jpillora/chisel/issues/579) — Cant reconnect after server reboot
-- [PR #581](https://github.com/jpillora/chisel/pull/581) — add timeout to keepAliveLoop (preferred fix)
-- [PR #583](https://github.com/jpillora/chisel/pull/583), [PR #488](https://github.com/jpillora/chisel/pull/488), [PR #442](https://github.com/jpillora/chisel/pull/442), [PR #481](https://github.com/jpillora/chisel/pull/481) — earlier attempts
+- [#445](https://github.com/snowie2000/chisel/issues/445) — Keepalive timers for disconnected chisel client
+- [#560](https://github.com/snowie2000/chisel/issues/560) — Client keeps disconnecting every 3-5 minutes
+- [#579](https://github.com/snowie2000/chisel/issues/579) — Cant reconnect after server reboot
+- [PR #581](https://github.com/snowie2000/chisel/pull/581) — add timeout to keepAliveLoop (preferred fix)
+- [PR #583](https://github.com/snowie2000/chisel/pull/583), [PR #488](https://github.com/snowie2000/chisel/pull/488), [PR #442](https://github.com/snowie2000/chisel/pull/442), [PR #481](https://github.com/snowie2000/chisel/pull/481) — earlier attempts
 
 ## 2. Authfile fsnotify watcher misses rename/truncate updates; no debounce
 
@@ -54,9 +54,9 @@ This is the most-reported problem in the tracker.
 
 ### Refs
 
-- [#493](https://github.com/jpillora/chisel/issues/493) — Intermittent authentication failure after updating users.json (k8s, restart required)
-- [#485](https://github.com/jpillora/chisel/issues/485) — Version mismatch when using auth file (related reports)
-- [PR #587](https://github.com/jpillora/chisel/pull/587) — debounce and improve config file watcher
+- [#493](https://github.com/snowie2000/chisel/issues/493) — Intermittent authentication failure after updating users.json (k8s, restart required)
+- [#485](https://github.com/snowie2000/chisel/issues/485) — Version mismatch when using auth file (related reports)
+- [PR #587](https://github.com/snowie2000/chisel/pull/587) — debounce and improve config file watcher
 
 ## 3. UDP exit node: flows beyond 100 are permanently broken and leak
 
@@ -82,9 +82,9 @@ Review/merge PR #515 (fixes removal, makes the cap configurable). Longer term, i
 
 ### Refs
 
-- [PR #515](https://github.com/jpillora/chisel/pull/515) — fix the udpConns map does not release new conns when its length is over 100
-- [#406](https://github.com/jpillora/chisel/issues/406) — Improve udp tunnel stability
-- [#456](https://github.com/jpillora/chisel/issues/456) — Exposing a Minecraft Bedrock Server (UDP)
+- [PR #515](https://github.com/snowie2000/chisel/pull/515) — fix the udpConns map does not release new conns when its length is over 100
+- [#406](https://github.com/snowie2000/chisel/issues/406) — Improve udp tunnel stability
+- [#456](https://github.com/snowie2000/chisel/issues/456) — Exposing a Minecraft Bedrock Server (UDP)
 
 ## 4. Security: SOCKS channels bypass per-user ACL
 
@@ -116,8 +116,8 @@ Channel ACLs were added in commit 44310b6 but left this hole.
 
 ### Refs
 
-- [#563](https://github.com/jpillora/chisel/issues/563) — Are Unauthorized clients allowed to connect and use Chisel server?
-- [#518](https://github.com/jpillora/chisel/issues/518) — How could configure authfile when using remote socks
+- [#563](https://github.com/snowie2000/chisel/issues/563) — Are Unauthorized clients allowed to connect and use Chisel server?
+- [#518](https://github.com/snowie2000/chisel/issues/518) — How could configure authfile when using remote socks
 
 ## 5. BindRemotes leaks bound listeners on partial failure
 
@@ -139,7 +139,7 @@ Add `Proxy.Close()` and close `proxies[0..i-1]` on error before returning.
 
 ### Refs
 
-- [#492](https://github.com/jpillora/chisel/issues/492) — multiple sockets bind to the same address (related)
+- [#492](https://github.com/snowie2000/chisel/issues/492) — multiple sockets bind to the same address (related)
 
 ## 6. Server auth: session map leak, panic race, literal %s error, timing-unsafe compare
 
@@ -201,7 +201,7 @@ Pairs with the external-auth (`--authurl`) idea (task 28).
 
 ### Refs
 
-- [#549](https://github.com/jpillora/chisel/issues/549) — clients are not disconnected when auth file is replaced
+- [#549](https://github.com/snowie2000/chisel/issues/549) — clients are not disconnected when auth file is replaced
 
 ## 10. Client connect loop: exit 0 on give-up, 100ms backoff Min, robustness nits
 
@@ -232,8 +232,8 @@ All in `client/client_connect.go` connectionLoop:
 
 ### Refs
 
-- [PR #537](https://github.com/jpillora/chisel/pull/537) — Fix client backoff
-- [#579](https://github.com/jpillora/chisel/issues/579) — Cant reconnect after server reboot (likely related)
+- [PR #537](https://github.com/snowie2000/chisel/pull/537) — Fix client backoff
+- [#579](https://github.com/snowie2000/chisel/issues/579) — Cant reconnect after server reboot (likely related)
 
 ## 12. Uppercase /UDP remote suffix parses but later fails as unknown proto
 
@@ -269,8 +269,8 @@ Return errors; `main.go` already log.Fatals on the returned error.
 
 ### Refs
 
-- [#542](https://github.com/jpillora/chisel/issues/542) — Usage in go code?
-- [#497](https://github.com/jpillora/chisel/issues/497) — there is no stop function?
+- [#542](https://github.com/snowie2000/chisel/issues/542) — Usage in go code?
+- [#497](https://github.com/snowie2000/chisel/issues/497) — there is no stop function?
 
 ## 17. Set websocket read limits (pre-auth memory DoS hardening)
 
@@ -307,7 +307,7 @@ Add `syscall.SIGTERM` (unix) and make a second signal force-exit. Use `http.Serv
 
 ### Refs
 
-- [PR #564](https://github.com/jpillora/chisel/pull/564) — Reuse existing function to implement graceful shutdown logic (review alongside)
+- [PR #564](https://github.com/snowie2000/chisel/pull/564) — Reuse existing function to implement graceful shutdown logic (review alongside)
 
 ## 19. Half-close support + dial-failure propagation through tunnels
 
@@ -334,11 +334,11 @@ Design pass:
 
 ### Refs
 
-- [#535](https://github.com/jpillora/chisel/issues/535) — Non graceful closing of remote connection
-- [#447](https://github.com/jpillora/chisel/issues/447) — when channel is closed, outbound always by use
-- [PR #536](https://github.com/jpillora/chisel/pull/536) — Half closing of connections when CloseWrite() is available
-- [PR #548](https://github.com/jpillora/chisel/pull/548) — Add CloseWrite() to rwcConn (SOCKS path)
-- [PR #538](https://github.com/jpillora/chisel/pull/538) — TCP reset on remote connection failure
+- [#535](https://github.com/snowie2000/chisel/issues/535) — Non graceful closing of remote connection
+- [#447](https://github.com/snowie2000/chisel/issues/447) — when channel is closed, outbound always by use
+- [PR #536](https://github.com/snowie2000/chisel/pull/536) — Half closing of connections when CloseWrite() is available
+- [PR #548](https://github.com/snowie2000/chisel/pull/548) — Add CloseWrite() to rwcConn (SOCKS path)
+- [PR #538](https://github.com/snowie2000/chisel/pull/538) — TCP reset on remote connection failure
 
 ## 20. CI/release hygiene: scope permissions, fix docker version stamping
 
@@ -359,8 +359,8 @@ Scope to least privilege (`contents: read` for test, `contents: write` only on r
 
 ### Refs
 
-- [#417](https://github.com/jpillora/chisel/issues/417) — Docker/github version string mismatch
-- [PR #584](https://github.com/jpillora/chisel/pull/584) — Improve Docker: use GoReleaser for images
+- [#417](https://github.com/snowie2000/chisel/issues/417) — Docker/github version string mismatch
+- [PR #584](https://github.com/snowie2000/chisel/pull/584) — Improve Docker: use GoReleaser for images
 
 ## 21. Tracker triage: close stale dependabot PRs and resolved issues
 
@@ -372,23 +372,23 @@ Scope to least privilege (`contents: read` for test, `contents: write` only on r
 
 ### Stale dependabot PRs
 
-Superseded by the dependency updates in [PR #568](https://github.com/jpillora/chisel/pull/568) (2025-09) and [PR #578](https://github.com/jpillora/chisel/pull/578) (2026-02) — close:
-[#448](https://github.com/jpillora/chisel/pull/448), [#449](https://github.com/jpillora/chisel/pull/449), [#450](https://github.com/jpillora/chisel/pull/450), [#451](https://github.com/jpillora/chisel/pull/451), [#467](https://github.com/jpillora/chisel/pull/467), [#470](https://github.com/jpillora/chisel/pull/470), [#478](https://github.com/jpillora/chisel/pull/478), [#496](https://github.com/jpillora/chisel/pull/496), [#513](https://github.com/jpillora/chisel/pull/513), [#516](https://github.com/jpillora/chisel/pull/516), [#517](https://github.com/jpillora/chisel/pull/517).
+Superseded by the dependency updates in [PR #568](https://github.com/snowie2000/chisel/pull/568) (2025-09) and [PR #578](https://github.com/snowie2000/chisel/pull/578) (2026-02) — close:
+[#448](https://github.com/snowie2000/chisel/pull/448), [#449](https://github.com/snowie2000/chisel/pull/449), [#450](https://github.com/snowie2000/chisel/pull/450), [#451](https://github.com/snowie2000/chisel/pull/451), [#467](https://github.com/snowie2000/chisel/pull/467), [#470](https://github.com/snowie2000/chisel/pull/470), [#478](https://github.com/snowie2000/chisel/pull/478), [#496](https://github.com/snowie2000/chisel/pull/496), [#513](https://github.com/snowie2000/chisel/pull/513), [#516](https://github.com/snowie2000/chisel/pull/516), [#517](https://github.com/snowie2000/chisel/pull/517).
 
-The dependabot config evidently rots — consider grouped monthly updates or renovate ([#559](https://github.com/jpillora/chisel/issues/559); [#452](https://github.com/jpillora/chisel/issues/452) reported confusing "fake pushes").
+The dependabot config evidently rots — consider grouped monthly updates or renovate ([#559](https://github.com/snowie2000/chisel/issues/559); [#452](https://github.com/snowie2000/chisel/issues/452) reported confusing "fake pushes").
 
 ### Issues closeable now
 
-- [#561](https://github.com/jpillora/chisel/issues/561) — Heroku demo dead (close via docs task 23)
-- [#585](https://github.com/jpillora/chisel/issues/585) — fixed by [PR #586](https://github.com/jpillora/chisel/pull/586)
-- [#445](https://github.com/jpillora/chisel/issues/445), [#560](https://github.com/jpillora/chisel/issues/560) — fold into keepalive fix (task 1)
-- [#541](https://github.com/jpillora/chisel/issues/541) — unsubstantiated buffer-overflow claim; no evidence provided; close with explanation
-- [#504](https://github.com/jpillora/chisel/issues/504), [#550](https://github.com/jpillora/chisel/issues/550), [#485](https://github.com/jpillora/chisel/issues/485) — close via version fallback (task 22)
-- [#498](https://github.com/jpillora/chisel/issues/498) — close via docs task 23
+- [#561](https://github.com/snowie2000/chisel/issues/561) — Heroku demo dead (close via docs task 23)
+- [#585](https://github.com/snowie2000/chisel/issues/585) — fixed by [PR #586](https://github.com/snowie2000/chisel/pull/586)
+- [#445](https://github.com/snowie2000/chisel/issues/445), [#560](https://github.com/snowie2000/chisel/issues/560) — fold into keepalive fix (task 1)
+- [#541](https://github.com/snowie2000/chisel/issues/541) — unsubstantiated buffer-overflow claim; no evidence provided; close with explanation
+- [#504](https://github.com/snowie2000/chisel/issues/504), [#550](https://github.com/snowie2000/chisel/issues/550), [#485](https://github.com/snowie2000/chisel/issues/485) — close via version fallback (task 22)
+- [#498](https://github.com/snowie2000/chisel/issues/498) — close via docs task 23
 
 ### Duplicate PRs
 
-Keepalive fixes [PR #581](https://github.com/jpillora/chisel/pull/581) / [PR #488](https://github.com/jpillora/chisel/pull/488) / [PR #442](https://github.com/jpillora/chisel/pull/442) — pick #581, close the rest with thanks.
+Keepalive fixes [PR #581](https://github.com/snowie2000/chisel/pull/581) / [PR #488](https://github.com/snowie2000/chisel/pull/488) / [PR #442](https://github.com/snowie2000/chisel/pull/442) — pick #581, close the rest with thanks.
 
 ## 22. Version: fall back to debug.ReadBuildInfo when ldflags absent
 
@@ -400,7 +400,7 @@ Keepalive fixes [PR #581](https://github.com/jpillora/chisel/pull/581) / [PR #48
 
 ### Problem
 
-`go install github.com/jpillora/chisel@latest` produces BuildVersion `0.0.0-src`, which then logs "Client version (0.0.0-src) differs from server version (...)" on every connect — recurring user confusion.
+`go install github.com/snowie2000/chisel@latest` produces BuildVersion `0.0.0-src`, which then logs "Client version (0.0.0-src) differs from server version (...)" on every connect — recurring user confusion.
 
 ### Fix
 
@@ -408,9 +408,9 @@ In `share/version.go`, when BuildVersion is the default, fall back to `runtime/d
 
 ### Refs
 
-- [#504](https://github.com/jpillora/chisel/issues/504) — Client version (0.0.0-src) differs from server version (v1.9.1)
-- [#550](https://github.com/jpillora/chisel/issues/550) — Client version difference on Kali Linux
-- [#485](https://github.com/jpillora/chisel/issues/485) — Version mismatch when using auth file
+- [#504](https://github.com/snowie2000/chisel/issues/504) — Client version (0.0.0-src) differs from server version (v1.9.1)
+- [#550](https://github.com/snowie2000/chisel/issues/550) — Client version difference on Kali Linux
+- [#485](https://github.com/snowie2000/chisel/issues/485) — Version mismatch when using auth file
 
 ## 23. Docs refresh: CLI help + README (wrong defaults, dead demo, install cmd, proxy creds)
 
@@ -424,17 +424,17 @@ In `share/version.go`, when BuildVersion is the default, fall back to `runtime/d
 ### CLI help text (main.go, rendered into README via md-tmpl)
 
 - `main.go:317` claims "remote-host defaults to 0.0.0.0 (server localhost)" — the code defaults RemoteHost to `127.0.0.1` (`share/settings/remote.go:110-112`), which is what "server localhost" actually means. Fix and re-render
-- `--keyfile` help is misleading: the "inline base64" example (`chisel server --keygen - | base64`) is wrong because keygen already outputs a `ck-...` base64 string; no extra base64 step is needed — [#498](https://github.com/jpillora/chisel/issues/498), [PR #461](https://github.com/jpillora/chisel/pull/461)
+- `--keyfile` help is misleading: the "inline base64" example (`chisel server --keygen - | base64`) is wrong because keygen already outputs a `ck-...` base64 string; no extra base64 step is needed — [#498](https://github.com/snowie2000/chisel/issues/498), [PR #461](https://github.com/snowie2000/chisel/pull/461)
 - Sweep for accuracy: "fallsback" (`main.go:105`), ragged tab indentation in the --fingerprint paragraph
 
 ### README
 
-- Demo section: chisel-demo.herokuapp.com is dead (Heroku free tier removed). Replace with a fly.io demo (`example/fly.toml` exists) or drop the section — [#561](https://github.com/jpillora/chisel/issues/561)
-- Verify install one-liner `curl https://i.jpillora.com/chisel! | bash` — [PR #562](https://github.com/jpillora/chisel/pull/562) claims broken
-- Demo text says `--proxy` where the flag docs say `--backend`; `main.go:189-190` registers both names for the same field — document the alias — [PR #556](https://github.com/jpillora/chisel/pull/556)
-- Document that `--proxy` credentials must be URL-encoded (a `#` in the password truncates the URL) — [#396](https://github.com/jpillora/chisel/issues/396)
+- Demo section: chisel-demo.herokuapp.com is dead (Heroku free tier removed). Replace with a fly.io demo (`example/fly.toml` exists) or drop the section — [#561](https://github.com/snowie2000/chisel/issues/561)
+- Verify install one-liner `curl https://i.jpillora.com/chisel! | bash` — [PR #562](https://github.com/snowie2000/chisel/pull/562) claims broken
+- Demo text says `--proxy` where the flag docs say `--backend`; `main.go:189-190` registers both names for the same field — document the alias — [PR #556](https://github.com/snowie2000/chisel/pull/556)
+- Document that `--proxy` credentials must be URL-encoded (a `#` in the password truncates the URL) — [#396](https://github.com/snowie2000/chisel/issues/396)
 - Dead links/badges: microbadger badge, Google App Engine tracker (code.google.com)
-- Requested examples: TLS setup walkthrough ([#533](https://github.com/jpillora/chisel/issues/533)), reverse socks + authfile ([#518](https://github.com/jpillora/chisel/issues/518)), cloudflare/CDN fronting notes ([#490](https://github.com/jpillora/chisel/issues/490))
+- Requested examples: TLS setup walkthrough ([#533](https://github.com/snowie2000/chisel/issues/533)), reverse socks + authfile ([#518](https://github.com/snowie2000/chisel/issues/518)), cloudflare/CDN fronting notes ([#490](https://github.com/snowie2000/chisel/issues/490))
 - Document the AUTH env var for both sides and the CHISEL_* env knobs (WS_TIMEOUT, SSH_TIMEOUT, UDP_MAX_SIZE, UDP_DEADLINE, CONFIG_TIMEOUT, SSH_WAIT) — currently undocumented
 
 ## 24. Accept socks5:// scheme in client --proxy
@@ -455,7 +455,7 @@ Add `socks5` to the allowed schemes (same SOCKS5 dialer). Note in help/docs: all
 
 ### Refs
 
-- [#474](https://github.com/jpillora/chisel/issues/474) — Support socks5:// protocol as client proxy protocol
+- [#474](https://github.com/snowie2000/chisel/issues/474) — Support socks5:// protocol as client proxy protocol
 
 ## 25. Trivial sweep: typos, tiny community PRs, server_listen.go dead code
 
@@ -468,13 +468,13 @@ Add `socks5` to the allowed schemes (same SOCKS5 dialer). Note in help/docs: all
 ### server_listen.go dead code
 
 - `server/server_listen.go:41-43`: the "LetsEncrypt will attempt to connect to your domain on port 443" warning is computed inside the hasKeyCert branch but guarded by hasDomains — impossible, since `hasDomains && hasKeyCert` already returned an error at line 27. Move the warning into the hasDomains path (port != 443) where it was clearly intended
-- Line 56 `if err == nil` is always true (err checked at line 47) — [PR #546](https://github.com/jpillora/chisel/pull/546) removes it; merge/credit
+- Line 56 `if err == nil` is always true (err checked at line 47) — [PR #546](https://github.com/snowie2000/chisel/pull/546) removes it; merge/credit
 
 ### Pending trivial PRs to merge or replicate
 
-- [PR #588](https://github.com/jpillora/chisel/pull/588) / [PR #575](https://github.com/jpillora/chisel/pull/575) — "forwaring" -> "forwarding" (`server/server_handler.go:126`, user-facing error message)
-- [PR #528](https://github.com/jpillora/chisel/pull/528) — typo fix
-- [PR #430](https://github.com/jpillora/chisel/pull/430) — add codespell to CI (prevents recurrence)
+- [PR #588](https://github.com/snowie2000/chisel/pull/588) / [PR #575](https://github.com/snowie2000/chisel/pull/575) — "forwaring" -> "forwarding" (`server/server_handler.go:126`, user-facing error message)
+- [PR #528](https://github.com/snowie2000/chisel/pull/528) — typo fix
+- [PR #430](https://github.com/snowie2000/chisel/pull/430) — add codespell to CI (prevents recurrence)
 
 ### Typos found in review
 
@@ -504,8 +504,8 @@ Add `socks5` to the allowed schemes (same SOCKS5 dialer). Note in help/docs: all
 
 ### Refs
 
-- [#383](https://github.com/jpillora/chisel/issues/383) — Can chisel server be configured to allow only certain ports?
-- [#543](https://github.com/jpillora/chisel/issues/543) — Using auth.json file with target verification
+- [#383](https://github.com/snowie2000/chisel/issues/383) — Can chisel server be configured to allow only certain ports?
+- [#543](https://github.com/snowie2000/chisel/issues/543) — Using auth.json file with target verification
 
 ## 27. Build hygiene: Makefile flags, build tags, deprecated APIs, test nits
 
@@ -535,7 +535,7 @@ Add `socks5` to the allowed schemes (same SOCKS5 dialer). Note in help/docs: all
 
 ### Idea
 
-[PR #582](https://github.com/jpillora/chisel/pull/582) implements `--authurl`: the server POSTs `{"username", "password"}` to an HTTP service; a 200 response with a JSON array of address regexes grants access, anything else denies.
+[PR #582](https://github.com/snowie2000/chisel/pull/582) implements `--authurl`: the server POSTs `{"username", "password"}` to an HTTP service; a 200 response with a JSON array of address regexes grants access, anything else denies.
 
 ### Decisions needed
 
@@ -548,9 +548,9 @@ Review the PR rather than reimplementing.
 
 ### Refs
 
-- [PR #582](https://github.com/jpillora/chisel/pull/582) — Add support for server --authurl parameter
-- [#476](https://github.com/jpillora/chisel/issues/476) — Feature request: support external authentication system
-- [#574](https://github.com/jpillora/chisel/issues/574) — Integration for OTP / Std Logging
+- [PR #582](https://github.com/snowie2000/chisel/pull/582) — Add support for server --authurl parameter
+- [#476](https://github.com/snowie2000/chisel/issues/476) — Feature request: support external authentication system
+- [#574](https://github.com/snowie2000/chisel/issues/574) — Integration for OTP / Std Logging
 
 ## 29. Observability: connection logs, /metrics, session introspection
 
@@ -562,13 +562,13 @@ Review the PR rather than reimplementing.
 
 ### Recurring asks
 
-- See connected clients and their IPs — [#530](https://github.com/jpillora/chisel/issues/530)
-- Log all connection attempts incl. failed auth — [#521](https://github.com/jpillora/chisel/issues/521)
-- Show authenticated user on connect — [#501](https://github.com/jpillora/chisel/issues/501)
-- Active-connection count endpoint for autoscaling — [#522](https://github.com/jpillora/chisel/issues/522), [PR #408](https://github.com/jpillora/chisel/pull/408)
-- Prometheus /metrics — [PR #407](https://github.com/jpillora/chisel/pull/407)
-- Connect/disconnect hooks — [#410](https://github.com/jpillora/chisel/issues/410), [PR #487](https://github.com/jpillora/chisel/pull/487)
-- Client identifier — [#468](https://github.com/jpillora/chisel/issues/468)
+- See connected clients and their IPs — [#530](https://github.com/snowie2000/chisel/issues/530)
+- Log all connection attempts incl. failed auth — [#521](https://github.com/snowie2000/chisel/issues/521)
+- Show authenticated user on connect — [#501](https://github.com/snowie2000/chisel/issues/501)
+- Active-connection count endpoint for autoscaling — [#522](https://github.com/snowie2000/chisel/issues/522), [PR #408](https://github.com/snowie2000/chisel/pull/408)
+- Prometheus /metrics — [PR #407](https://github.com/snowie2000/chisel/pull/407)
+- Connect/disconnect hooks — [#410](https://github.com/snowie2000/chisel/issues/410), [PR #487](https://github.com/snowie2000/chisel/pull/487)
+- Client identifier — [#468](https://github.com/snowie2000/chisel/issues/468)
 
 ### Minimal valuable step
 
@@ -586,19 +586,19 @@ Optional next: a /metrics endpoint (sessions, tunnels, bytes — ConnCount and M
 
 ### Idea
 
-[#589](https://github.com/jpillora/chisel/issues/589) proposes an opt-in SSE+POST transport: long-lived GET for server->client, POST per frame for client->server, reducing to a net.Conn behind the `share/cnet` seam (like conn_ws.go / conn_rwc.go), keeping the single multiplexed SSH session, stdlib only, websocket stays the default.
+[#589](https://github.com/snowie2000/chisel/issues/589) proposes an opt-in SSE+POST transport: long-lived GET for server->client, POST per frame for client->server, reducing to a net.Conn behind the `share/cnet` seam (like conn_ws.go / conn_rwc.go), keeping the single multiplexed SSH session, stdlib only, websocket stays the default.
 
 ### Why
 
-Long-standing demand from environments that strip Upgrade headers ([#24](https://github.com/jpillora/chisel/issues/24), [#375](https://github.com/jpillora/chisel/issues/375)) and IDS-blocked deployments ([#507](https://github.com/jpillora/chisel/issues/507), [#432](https://github.com/jpillora/chisel/issues/432)).
+Long-standing demand from environments that strip Upgrade headers ([#24](https://github.com/snowie2000/chisel/issues/24), [#375](https://github.com/snowie2000/chisel/issues/375)) and IDS-blocked deployments ([#507](https://github.com/snowie2000/chisel/issues/507), [#432](https://github.com/snowie2000/chisel/issues/432)).
 
 ### Considerations
 
-Evaluate building on webdial vs the standalone implementation offered in the issue; buffering-proxy pathologies; auth/path configurability ([#566](https://github.com/jpillora/chisel/issues/566) custom URI pairs well).
+Evaluate building on webdial vs the standalone implementation offered in the issue; buffering-proxy pathologies; auth/path configurability ([#566](https://github.com/snowie2000/chisel/issues/566) custom URI pairs well).
 
 ### Refs
 
-- [#589](https://github.com/jpillora/chisel/issues/589) — SSE transport for environments that block WebSocket upgrades
+- [#589](https://github.com/snowie2000/chisel/issues/589) — SSE transport for environments that block WebSocket upgrades
 
 ## 31. PROXY protocol support (server ingress + reverse-remote egress)
 
@@ -617,8 +617,8 @@ Interacts with requestlog TrustProxy (`server/server.go:176-178`). Parsing must 
 
 ### Refs
 
-- [#540](https://github.com/jpillora/chisel/issues/540) — [FEAT] Add Proxy Protocol support
-- [PR #552](https://github.com/jpillora/chisel/pull/552) — PROXY v2 support (evaluate)
+- [#540](https://github.com/snowie2000/chisel/issues/540) — [FEAT] Add Proxy Protocol support
+- [PR #552](https://github.com/snowie2000/chisel/pull/552) — PROXY v2 support (evaluate)
 
 ## 32. Unix domain socket remotes
 
@@ -636,7 +636,7 @@ Main blocker is remote syntax — `settings.Remote` parsing is colon-delimited (
 
 ### Refs
 
-- [#399](https://github.com/jpillora/chisel/issues/399) — [UDS] add unix domain support to chisel
+- [#399](https://github.com/snowie2000/chisel/issues/399) — [UDS] add unix domain support to chisel
 
 ## 33. Key/TLS management UX bundle
 
@@ -649,12 +649,12 @@ Main blocker is remote syntax — `settings.Remote` parsing is colon-delimited (
 
 ### Bundle
 
-- `--keygen-json`: emit `{key, fingerprint}` JSON for automation — [PR #460](https://github.com/jpillora/chisel/pull/460); pairs with [#499](https://github.com/jpillora/chisel/issues/499) (key automation)
-- Encrypted PKCS#8 private keys + `--tls-keypass` for mTLS keys — [PR #565](https://github.com/jpillora/chisel/pull/565)
-- Avoid plaintext proxy password: read from terminal/stdin — [PR #532](https://github.com/jpillora/chisel/pull/532)
-- TLS fingerprint pinning for the transport layer, complementing the SSH `--fingerprint` — [#577](https://github.com/jpillora/chisel/issues/577)
+- `--keygen-json`: emit `{key, fingerprint}` JSON for automation — [PR #460](https://github.com/snowie2000/chisel/pull/460); pairs with [#499](https://github.com/snowie2000/chisel/issues/499) (key automation)
+- Encrypted PKCS#8 private keys + `--tls-keypass` for mTLS keys — [PR #565](https://github.com/snowie2000/chisel/pull/565)
+- Avoid plaintext proxy password: read from terminal/stdin — [PR #532](https://github.com/snowie2000/chisel/pull/532)
+- TLS fingerprint pinning for the transport layer, complementing the SSH `--fingerprint` — [#577](https://github.com/snowie2000/chisel/issues/577)
 
-Keep `test/e2e/env_key_test.go` green throughout — regression test for [#570](https://github.com/jpillora/chisel/issues/570) / [PR #571](https://github.com/jpillora/chisel/pull/571) (CHISEL_KEY env fix).
+Keep `test/e2e/env_key_test.go` green throughout — regression test for [#570](https://github.com/snowie2000/chisel/issues/570) / [PR #571](https://github.com/snowie2000/chisel/pull/571) (CHISEL_KEY env fix).
 
 ## 34. Assorted feature asks worth triaging
 
@@ -666,12 +666,12 @@ Keep `test/e2e/env_key_test.go` green throughout — regression test for [#570](
 
 ### Grab-bag from the last 100 issues
 
-- Random/ephemeral local port (allow port 0 + report allocation) — [#434](https://github.com/jpillora/chisel/issues/434), [#410](https://github.com/jpillora/chisel/issues/410); isPort currently rejects 0 (`share/settings/remote.go:135-144`)
-- Config-file driven client/server — [#393](https://github.com/jpillora/chisel/issues/393); CHISEL_MODE-style env selection for docker — [#436](https://github.com/jpillora/chisel/issues/436)
-- WebSocket compression / zstd — [#529](https://github.com/jpillora/chisel/issues/529); gorilla supports permessage-deflate via EnableCompression
-- IPv4/IPv6 dial preference flag — localhost resolving to ::1 surprises users when the service binds 127.0.0.1 only — [#544](https://github.com/jpillora/chisel/issues/544), [#479](https://github.com/jpillora/chisel/issues/479), [#520](https://github.com/jpillora/chisel/issues/520)
-- Custom websocket endpoint path (--uri) — [#566](https://github.com/jpillora/chisel/issues/566); pairs with the SSE transport idea (task 30)
-- Win7 support — [#576](https://github.com/jpillora/chisel/issues/576); infeasible on modern Go, document minimum OS in README instead
+- Random/ephemeral local port (allow port 0 + report allocation) — [#434](https://github.com/snowie2000/chisel/issues/434), [#410](https://github.com/snowie2000/chisel/issues/410); isPort currently rejects 0 (`share/settings/remote.go:135-144`)
+- Config-file driven client/server — [#393](https://github.com/snowie2000/chisel/issues/393); CHISEL_MODE-style env selection for docker — [#436](https://github.com/snowie2000/chisel/issues/436)
+- WebSocket compression / zstd — [#529](https://github.com/snowie2000/chisel/issues/529); gorilla supports permessage-deflate via EnableCompression
+- IPv4/IPv6 dial preference flag — localhost resolving to ::1 surprises users when the service binds 127.0.0.1 only — [#544](https://github.com/snowie2000/chisel/issues/544), [#479](https://github.com/snowie2000/chisel/issues/479), [#520](https://github.com/snowie2000/chisel/issues/520)
+- Custom websocket endpoint path (--uri) — [#566](https://github.com/snowie2000/chisel/issues/566); pairs with the SSE transport idea (task 30)
+- Win7 support — [#576](https://github.com/snowie2000/chisel/issues/576); infeasible on modern Go, document minimum OS in README instead
 
 ## 35. Dependabot rot: switch to grouped monthly updates or renovate
 
@@ -681,4 +681,4 @@ Keep `test/e2e/env_key_test.go` green throughout — regression test for [#570](
 * created: 2026-06-12T10:40:33Z
 * updated: 2026-06-12T11:52:45Z
 
-The dependabot config produced 11 stale PRs that sat unmerged for years (closed 2026-06-12 in task 21). Decide between dependabot grouped monthly updates or renovate, then implement. Refs: [#559](https://github.com/jpillora/chisel/issues/559) (renovate suggestion), [#452](https://github.com/jpillora/chisel/issues/452) (confusing \"fake pushes\" from dependabot).
+The dependabot config produced 11 stale PRs that sat unmerged for years (closed 2026-06-12 in task 21). Decide between dependabot grouped monthly updates or renovate, then implement. Refs: [#559](https://github.com/snowie2000/chisel/issues/559) (renovate suggestion), [#452](https://github.com/snowie2000/chisel/issues/452) (confusing \"fake pushes\" from dependabot).

@@ -47,7 +47,7 @@ jobs:
           REST="${VERSION#*.}"
           MINOR="${REST%%.*}"
           echo "promoting ${VERSION} -> latest, ${MAJOR}, ${MAJOR}.${MINOR}"
-          for repo in ghcr.io/jpillora/chisel docker.io/jpillora/chisel; do
+          for repo in ghcr.io/snowie2000/chisel docker.io/snowie2000/chisel; do
             docker buildx imagetools create \
               --tag "${repo}:latest" \
               --tag "${repo}:${MAJOR}" \

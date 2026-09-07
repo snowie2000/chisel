@@ -1,2 +1,2 @@
-FROM jpillora/chisel
+FROM snowie2000/chisel
 ENTRYPOINT ["/app/bin", "server", "--port", "443", "--tls-domain", "chisel.jpillora.com"]

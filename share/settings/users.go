@@ -13,7 +13,7 @@ import (
 	"time"
 
 	"github.com/fsnotify/fsnotify"
-	"github.com/jpillora/chisel/share/cio"
+	"github.com/snowie2000/chisel/share/cio"
 )
 
 type Users struct {
