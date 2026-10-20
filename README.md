@@ -33,6 +33,12 @@ Chisel is a fast TCP/UDP tunnel, transported over HTTP, secured via SSH. Single 
 
 ## Install
 
+### Optional graphical client
+
+For a Windows-friendly, cross-platform tunnel manager with saved profiles,
+connection controls, and live logs, see [Chisel GUI](cmd/chisel-gui/README.md).
+It runs as a separate executable using the existing Chisel client library.
+
 ### Binaries
 
 [![Releases](https://img.shields.io/github/release/snowie2000/chisel.svg)](https://github.com/snowie2000/chisel/releases) [![Releases](https://img.shields.io/github/downloads/snowie2000/chisel/total.svg)](https://github.com/snowie2000/chisel/releases)

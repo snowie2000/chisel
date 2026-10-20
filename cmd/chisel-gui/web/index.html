@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Chisel · Tunnel manager</title><link rel="stylesheet" href="/style.css"><script src="/app.js" defer></script></head>
+<body>
+<aside>
+  <div class="brand"><span class="mark">⇄</span><div>chisel<span class="sub">TUNNEL MANAGER</span></div></div>
+  <div class="nav-title">YOUR CONNECTIONS <button id="new" title="New profile" aria-label="New profile">+</button></div>
+  <nav id="profiles" aria-label="Connection profiles"></nav>
+  <div class="aside-bottom"><span class="local-dot"></span> Running on this device<p>Your tunnels keep running when<br>you close this browser tab.</p><button id="quit" class="quiet">Quit Chisel GUI ↗</button></div>
+</aside>
+<main>
+  <header><div><span class="eyebrow">WORKSPACE / CONNECTIONS</span><h1 id="title">New connection</h1><p>One place for your tunnels. A little less terminal.</p></div><span class="badge" id="status">● Disconnected</span></header>
+  <div id="notice" role="status" aria-live="polite" hidden></div>
+  <form id="editor">
+    <section class="card"><div class="section-head"><div><h2><span class="step">01</span> Connection</h2><p>Where should your tunnel connect?</p></div><span class="tag">SSH ENCRYPTED</span></div>
+      <div class="grid"><label>Profile name<input name="name" required placeholder="e.g. Home lab"></label><label>Server URL<input name="server" required placeholder="https://tunnel.example.com:443" spellcheck="false"></label></div>
+      <div class="grid"><label>Authentication <span class="optional">optional</span><input name="auth" type="password" placeholder="username:password" autocomplete="off"></label><label>Server fingerprint <span class="optional">recommended</span><input name="fingerprint" placeholder="SHA256 fingerprint from your server" spellcheck="false"></label></div>
+    </section>
+    <section class="card"><div class="section-head"><div><h2><span class="step">02</span> Tunnels</h2><p>Route a port, reach a service, or create a SOCKS proxy.</p></div><span id="tunnel-count" class="tag">0 TUNNELS</span></div>
+      <div class="presets"><span>QUICK ADD</span><button type="button" data-preset="127.0.0.1:8080:127.0.0.1:80">↗ Port forward</button><button type="button" data-preset="127.0.0.1:1080:socks">◎ SOCKS5</button><button type="button" data-preset="127.0.0.1:1080:udpsocks">◉ UDP SOCKS</button><button type="button" data-preset="R:127.0.0.1:8080:127.0.0.1:80">⇄ Reverse</button></div>
+      <label class="remote-label">Tunnel definitions <span class="optional">one per line</span><textarea name="remotes" rows="3" spellcheck="false" required placeholder="127.0.0.1:8080:127.0.0.1:80"></textarea></label>
+      <div class="hint"><span>ⓘ</span><div><code>local-host:local-port:remote-host:remote-port</code><br>Add <code>/udp</code> for UDP forwarding or <code>R:</code> for reverse tunnels. SOCKS and reverse tunnels need server support. Presets bind to loopback.</div></div>
+    </section>
+    <section class="card advanced"><details><summary><span><span class="step">03</span> Advanced settings</span><span class="optional">Proxy, TLS & reconnect</span></summary><div class="advanced-body">
+      <div class="grid"><label>Upstream proxy<input name="proxy" placeholder="socks5://127.0.0.1:1080" spellcheck="false"></label><label>TLS server name<input name="serverName" placeholder="Uses server hostname by default"></label></div>
+      <div class="grid"><label>Keepalive interval<input name="keepAlive" placeholder="25s"></label><label>Maximum retries<input name="retries" type="number" min="-1" value="-1"><small>−1 = unlimited; 0 = no retries</small></label></div>
+      <div class="grid"><label>Minimum retry interval<input name="minRetry" placeholder="1s"></label><label>Maximum retry interval<input name="maxRetry" placeholder="5m"></label></div>
+      <div class="grid"><label>CA certificate path<input name="ca" placeholder="Use system certificate authorities"></label><label>Client certificate path<input name="cert" placeholder="Optional PEM file for mutual TLS"></label></div>
+      <label>Client private key path<input name="key" placeholder="PEM file matching the client certificate"></label>
+      <label>HTTP headers<textarea name="headers" rows="2" placeholder="X-Example: value" spellcheck="false"></textarea></label>
+      <label class="check"><input name="skipVerify" type="checkbox"> Skip TLS certificate verification (insecure)</label>
+      <label class="check"><input name="verbose" type="checkbox"> Enable verbose connection logs</label>
+      <p class="hint">Saving a profile remembers authentication, proxy credentials and headers. On Windows, credentials are protected for your Windows user account.</p>
+    </div></details></section>
+    <div class="actions"><button type="button" id="delete" class="danger quiet">Delete profile</button><span id="save-state">Changes apply on your next connection.</span><button type="submit" id="save">Save profile</button><button type="button" id="connect" class="primary">↗ Connect</button></div>
+  </form>
+  <section class="card activity"><div class="section-head"><div><h2><span class="activity-dot"></span> Connection activity</h2><p id="activity-caption">Live connection events for this profile.</p></div><button id="download" class="quiet">↓ Save log</button></div><pre id="logs" tabindex="0" aria-label="Connection log">Your next connection starts here.
+Save a profile and click Connect to open a tunnel.</pre></section>
+  <footer>CHISEL GUI <span>Local control. Encrypted transport.</span></footer>
+</main>
+<dialog id="confirm"><h2 id="confirm-title">Confirm</h2><p id="confirm-message"></p><div class="dialog-actions"><button id="cancel-confirm">Cancel</button><button id="accept-confirm" class="primary">Continue</button></div></dialog>
+</body></html>
