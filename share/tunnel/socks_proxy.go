@@ -9,8 +9,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/jpillora/chisel/share/cio"
-	"github.com/jpillora/chisel/share/settings"
+	"github.com/snowie2000/chisel/share/cio"
+	"github.com/snowie2000/chisel/share/settings"
 	"golang.org/x/crypto/ssh"
 )
 

@@ -12,7 +12,7 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/jpillora/chisel/share/settings"
+	"github.com/snowie2000/chisel/share/settings"
 )
 
 // A separate destination keeps legacy peers from accepting a UDP channel as
